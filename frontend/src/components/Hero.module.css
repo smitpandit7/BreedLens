@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 80px 52px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #c084fc;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  animation: fadeDown 0.6s ease both;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 82px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  animation: fadeDown 0.6s ease 0.1s both;
+}
+
+.logoIco {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: none;
+  box-shadow: none;
+  animation: none;
+  flex-shrink: 0;
+}
+
+.logoName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.3px;
+}
+
+.logoNameAccent {
+  background: linear-gradient(135deg, #FF8E53, #FFD93D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.line1 {
+  display: block;
+  color: var(--off);
+}
+
+.line2 {
+  display: block;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.line2Inner {
+  display: inline-block;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 0.05em 0.2em;
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 44px;
+  line-height: 1.7;
+  animation: fadeDown 0.6s ease 0.2s both;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 60px 24px 40px;
+  }
+  .sub {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 16px 32px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+  }
+  .title {
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+  .sub {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+}

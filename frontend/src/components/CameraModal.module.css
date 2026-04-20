@@ -1,0 +1,196 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--transition);
+}
+
+.on {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Viewfinder */
+.viewfinder {
+  position: relative;
+  width: min(92vw, 480px);
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Corners */
+.corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--v1);
+  border-style: solid;
+  transition: all 0.3s;
+}
+
+.tl { top: 14px; left: 14px; border-width: 2.5px 0 0 2.5px; border-radius: 4px 0 0 0; }
+.tr { top: 14px; right: 14px; border-width: 2.5px 2.5px 0 0; border-radius: 0 4px 0 0; }
+.bl { bottom: 14px; left: 14px; border-width: 0 0 2.5px 2.5px; border-radius: 0 0 0 4px; }
+.br { bottom: 14px; right: 14px; border-width: 0 2.5px 2.5px 0; border-radius: 0 0 4px 0; }
+
+/* Scan line */
+.scan {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--v1), transparent);
+  box-shadow: 0 0 10px var(--v1);
+  top: 14px;
+  animation: camScan 2.5s ease-in-out infinite;
+}
+
+/* Focus ring */
+.focus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 1.5px solid rgba(255, 107, 107, 0.7);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: camFocus 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Flash */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 20px;
+  transition: opacity 0.05s;
+}
+
+.flashPop {
+  opacity: 0.85;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(92vw, 480px);
+  padding: 22px 24px 10px;
+  gap: 16px;
+}
+
+.closeBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: var(--v1);
+  color: var(--v1);
+}
+
+.shutter {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.shutter:hover {
+  border-color: var(--v1);
+  transform: scale(1.05);
+}
+
+.shutter:active {
+  transform: scale(0.95);
+}
+
+.shutterInner {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53, #ffd93d);
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+  transition: all 0.2s;
+}
+
+.shutter:hover .shutterInner {
+  box-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+}
+
+.flipBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.flipBtn:hover {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: var(--p1);
+  color: var(--p1);
+}
+
+.flipBtn:active {
+  transform: rotate(180deg);
+}
